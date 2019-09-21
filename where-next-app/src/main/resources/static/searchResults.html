@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+	</head>
+    
+	<body>
+        <script>
+            $(document).ready(function(){
+            $('#btnSearch').click(function(){
+                let txtSearch = document.querySelector('#txtSearch'); 
+                window.location.href = `file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/search_results.html?search=${txtSearch.value}`;
+            })
+         getData();
+
+    });    
+        </script>
+        <div class="topnav">
+            <a class="active" href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/index.html">Home</a>
+            
+            <div class="search-container">
+                <form> 
+                    <input type="text" id="txtSearch" placeholder="Search.." name="search">
+                    <button id="btnSearch" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <h2>Search Results:</h2>
+        <h3>Movies</h3>
+        <div id="movieResults" class="search">
+            
+        </div>
+        <h3>Actors</h3>
+        <div id="peopleResults" class="card-group"></div>
+
+	</body>
+    <script src="./search.js">
+    
+    
+    </script>
+</html>
