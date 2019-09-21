@@ -1,21 +1,19 @@
 package org.wherenext.wherenextapp.db.model;
 
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
+import javax.persistence.*;
 
-//@Entity
+@Entity
 public class Opportunity {
 
-//    @Id
-//    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer opportunityId;
 
     private String title;
 
-    private Integer hits;
+    private String hits;
 
+    @Lob
     private String summary;
 
     private String categoryId;
@@ -32,7 +30,7 @@ public class Opportunity {
         return title;
     }
 
-    public Integer getHits() {
+    public String getHits() {
         return hits;
     }
 
@@ -60,7 +58,7 @@ public class Opportunity {
         this.title = title;
     }
 
-    public void setHits(Integer hits) {
+    public void setHits(String hits) {
         this.hits = hits;
     }
 
