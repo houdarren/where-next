@@ -1,6 +1,6 @@
 # Where Next?
 
-### A web app for surfacing relevant volunteer events from a freeform text query.
+A web app for surfacing relevant volunteer events from a freeform text query.
 
 ## Problem
 
@@ -33,4 +33,12 @@ java -jar where-next.jar
 ## Architecture
 
 Spring webapp connected to a flask microservice
+
+![Architecture](diagram.png)
+
+## Extensions
+
+Improvements to NLP algorithm
+
+For more data, include a big data store (e.g. HDFS) along with a document indexer (e.g. Solr) to process new volunteer events as they come in to enable fast text search.
 
