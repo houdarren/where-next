@@ -20,7 +20,8 @@ public class WherenextController {
     @PostMapping(path="/new")
     public @ResponseBody String insertNewOpportunity(
             @RequestParam String title,
-            @RequestParam String description) {
+            @RequestParam String description,
+            @RequestParam String organizer) {
         Opportunity opp = new Opportunity();
         opp.setTitle(title);
         opp.setCategoryDesc(description);
@@ -28,7 +29,16 @@ public class WherenextController {
         return "Saved";
     }
 
-    @GetMapping(path="/all")
+    @GetMapping(path="/demo")
+    public @ResponseBody Iterable<Opportunity> getDemo() {
+        List<Opportunity> l = new ArrayList<>();
+        Opportunity o = new Opportunity();
+        o.setTitle("WOW!");
+        l.add(o);
+        return l;
+    }
+
+    @GetMapping(path="/all", produces="application/json")
     public @ResponseBody Iterable<Opportunity> getOpportunities() {
         return opportunityRepository.findAll();
     }
@@ -40,6 +50,10 @@ public class WherenextController {
 
         List<String> keywords = TextUtil.extractKeywords(searchText);
 
+        // hit flask api here
+        List<Integer> documentIds = new ArrayList<>();
+        documentIds.add(5137);
 
+        return opportunityRepository.findAllById(documentIds);
     }
 }

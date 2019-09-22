@@ -34,4 +34,50 @@ function newEvent() {
   // );
 }
 
-// create html elements with json info
+// Submit new event
+
+$('#submitEvent').on('click', function() {
+
+   $.ajax({
+   type:'POST',
+   url :"result",
+   success: function(data) {
+        var message = data.message;
+        $("#result").html("<p>" + message + "</p>")
+   },
+   error: function(exception) {
+    alert('Exeption:' + exception);}
+  }); 
+
+});
+
+$("#searchEvent").on("click", function() {
+
+    var searchData = {
+      "searchString": $("#searchBar").val()
+    };
+
+    $.ajax({
+        url:
+        type: "GET",
+        data: searchData,
+        success: function(data) {
+            var response = data.response;
+            var html = "";
+            for (var i = 0; i < response.length; i++) {
+                var title = response[i].title;
+                var summary = response[i].summary;
+                html += "<p class='event'>";
+                html += title + " ";
+                html += summary;
+                html += "</p>";
+            }
+            $("#result").html(html)
+        },
+        error: function(exception) {
+            alert("Exception!");
+        }
+    });
+
+})
+
