@@ -57,6 +57,7 @@ public class WherenextController {
 
     @GetMapping(path="/search")
     public @ResponseBody Iterable<Opportunity> searchOpportunities(String searchText) {
+        System.out.println(searchText);
         if (searchText == null || searchText.isEmpty())
             return getOpportunities();
 

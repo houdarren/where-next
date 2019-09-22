@@ -80,9 +80,13 @@ $(document).ready(function() {
             async: true,
             url: "localhost:8080/api/search",
             type: "GET",
-            data: searchData,
+            data: JSON.stringify(searchData),
+            contentType : "application/json",
+            dataType: 'json',
+            timeout : 100000,
 
             success: function(data) {
+              alert("Success!");
               console.log(data);
                 var response = data.response;
                 alert(response);
@@ -90,52 +94,46 @@ $(document).ready(function() {
                 for (var i = 0; i < response.length; i++) {
                     var title = response[i].title;
                     var summary = response[i].summary;
+                    var org = response[i].
                     html += createList(title, summary, "8-22-19", "8-22-19", "NYC, NY");
                 }
                 $("#result").html(html);
+
+                var numResults = "Found " + data.response.length + " results (max 10)";
+
+                $("#numResults").html(numResults);
             },
-            
-            error: function(exception) {
+
+            error: function(exception, status, message) {
                 alert("Exception!");
+                console.log(exception);
+                console.log(status);
+                console.log(message);
+
+                $("#numResults").html("Found 0 results (max 10)");
             }
         });
 
+        return false;
     });
 
     $("#alertTest").on("click", function() {
-      alert("OKOKOKOKOKOKOKKOK")
+      alert("OKOKOKOKOKOKOKKOK");
     });
 
-  function createList(title, desc, tStart, tEnd, address, location) {
-      return `<article class="search-result row">
-          <div class="col-xs-12 col-sm-12 col-md-3">
-                <a href="#" title="Lorem Ipsum" class="thumbnail"
-                  ><img src="http://lorempixel.com/250/140/abstract" alt="Lorem ipsum"
-                /></a>
+  function createSearchResultElement(title, org, summary) {
+      return `
+      <div class="row">
+        <div class="col col-lg">
+            <div class="card" style="">
+              <div class="card-body">
+                <h5 class="card-title">${title}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${org}</h6>
+                <p class="card-text">${summary}</p>
+                
               </div>
-              <div class="col-xs-12 col-sm-12 col-md-2">
-                <ul class="meta-search">
-                  <li>
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>${tStart} - ${tEnd}</span>
-                  </li>
-                  <li>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>${address}</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-7">
-                <h3><a href="#" title="">${title}</a></h3>
-                <p>
-                  ${desc}
-                </p>
-                <span class="plus"
-                  ><a href="#" title="Lorem ipsum"
-                    ><i class="fas fa-hand-rock"></i></a
-                ></span>
-              </div>
-              <span class="clearfix border"></span>
-            </article> `;
+            </div>
+          </div> 
+          </div>`;
     }
 });
