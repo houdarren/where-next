@@ -16,7 +16,13 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Theme CSS -->
-  <link href="css/freelancer.css" rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  <link href="style.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +37,7 @@
   </nav>
 
   <!-- Masthead -->
-  <header class="masthead bg-primary text-center">
+  <header class="masthead text-center">
     <div class="container d-flex align-items-center flex-column">
 
 
@@ -39,20 +45,34 @@
       <h1 class="masthead-heading text-uppercase mb-0">Where Next?</h1>
 
       <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
+      <!-- <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
         </div>
-        <div class="divider-custom-line"></div>
+        <div class="divider-custom-line"></div> -->
       </div>
 
       <!-- Masthead Subheading -->
       <p class="masthead-subheading font-weight-light mb-0">Sophisticated volunteer matching</p>
-
-      <button type="button" class="btn btn-primary">Volunteer for an event!</button>
-
     </div>
   </header>
-
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-6">
+        <div class="btn-landing">
+          <button class="btn-landing-color">
+            I'm a Volunteer<br/>Let me help!
+          </button>
+        </div>
+        <div class="btn-landing" style="margin-top: 1rem">
+          <button class="btn-landing-color">
+              I’m a Organizer,<br/>Create an event!
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
