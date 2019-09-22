@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Where now? Take the next step to give back to your community!</title>
+    <title>Volunteer with Where next? Take the next step to give back to your community!</title>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -16,10 +16,7 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <script src="https://kit.fontawesome.com/bd7aff5ed6.js" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -30,10 +27,21 @@
     <!-- add fonts and fontawesome here...-->
   </head>
   <body>
-    <div class="container">
-      <h2>Volunteer</h2>
-        <div class="search-container">
-          <form>
+    <div class="container volunteer">
+        <div class="row"><h2>Volunteer</h2></div>
+        <div class="row search-container">
+          <form >
+              <div class='col location'>
+                <input
+                type="text"
+                id="locationSearch"
+                placeholder="Zip code, city..."
+                name="search"
+                />
+                <i class="fas fa-location-arrow"></i>
+              </div>
+              <div class="w-100"></div>
+          <div class="col volSearch">
             <input
               type="text"
               id="txtSearch"
@@ -42,12 +50,22 @@
             />
             <button id="btnSearch" type="button">
               <i class="fa fa-search"></i>
+          </div>
             </button>
           </form>
-          <div>
-            Try typing "I like to cook" or "environmental awareness" or
-            "homelessness" or "exercise"
-          </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="example-text">
+            <div class="text">
+                Try typing
+            </div>
+            <div class="text">
+                I am a designer <br>
+                I like to cook <br>
+                tutoring<br>
+                Anything you're thinking of!<br>
+            </div>
+          
         </div>
       </div>
     </div>

@@ -1,0 +1,54 @@
+:root {
+  --main-bg-color: pink;
+  --main-primary: purple;
+  --accent: #5f5f5f;
+}
+div {
+  border: 1px solid black;
+}
+input {
+  padding: 5px;
+  margin: 5px;
+}
+.volunteer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.location {
+  border: 2px var(--accent) solid;
+  border-radius: 3px;
+  min-width: 200px;
+}
+
+.accent,
+.fas {
+  color: var(--accent);
+}
+
+.example-text {
+  color: var(--main-primary);
+  display: flex;
+
+  align-items: center;
+}
+.example-text :first-child {
+  vertical-align: text-top;
+  height: 100%;
+}
+
+.text {
+  padding: 10px;
+}
+
+.volSearch {
+  border-bottom: 2px solid var(--main-primary);
+}
+
+.volSearch > button,
+input {
+  border: none;
+  background-color: white;
+}
