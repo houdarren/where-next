@@ -41,11 +41,14 @@ $(document).ready(function() {
 
       var title = $("#title").val();
       var summary = $("#summary").val();
+      var organizer = $("#organizer").val;
+
+      alert(title + " " + summary + " organizer");
 
       var eventData = {
         "title": title,
         "summary": summary,
-        "organizer": "none"
+        "organizer": organizer
       };
 
       $.ajax({
@@ -54,7 +57,7 @@ $(document).ready(function() {
         data: eventData,
         success: function(data) {
             var message = data.message;
-            $("#result").html("<p>" + message + "</p>")
+            $("#result").html("<p>" + message + "</p>");
         },
         error: function(exception) {
           alert('Exeption:' + exception);
@@ -65,32 +68,39 @@ $(document).ready(function() {
 
     // Search for events
 
-    $("#btnSearch").on("click", function() {
+    $("#btnSearch").click(function() {
 
+      var searchString = $("#txtSearch").val();
+      searchString = searchString ? searchString : "";
         var searchData = {
-            "searchString": $("#txtSearch").val()
+            "searchString": searchString
         };
 
         $.ajax({
-            url: "", /* TODO */
+            async: true,
+            url: "localhost:8080/api/search",
             type: "GET",
             data: searchData,
+
             success: function(data) {
+              console.log(data);
                 var response = data.response;
+                alert(response);
                 var html = "";
                 for (var i = 0; i < response.length; i++) {
                     var title = response[i].title;
                     var summary = response[i].summary;
-                    html += createList(title, summary, "8-22-19", "8-22-19", "NYC, NY")
+                    html += createList(title, summary, "8-22-19", "8-22-19", "NYC, NY");
                 }
-                $("#result").html(html)
+                $("#result").html(html);
             },
+            
             error: function(exception) {
                 alert("Exception!");
             }
         });
 
-    })
+    });
 
     $("#alertTest").on("click", function() {
       alert("OKOKOKOKOKOKOKKOK")
