@@ -15,10 +15,10 @@ brew install mysql
 brew services start mysql
 ```
 
-Install Python dependencies from requirements.text
-Run the Python Flask app
-https://flask.palletsprojects.com/en/1.0.x/tutorial/factory/
-Flask app repo
+Install Python dependencies from requirements.text  
+Run the Python Flask app  
+https://flask.palletsprojects.com/en/1.0.x/tutorial/factory/  
+Flask app repo  
 https://github.com/Nov05/flask-event-finder
 
 Then build and run the Spring webapp.

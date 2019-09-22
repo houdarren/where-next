@@ -9,33 +9,7 @@ public class TextUtil {
 
     static {
         String[] filteredWords = new String[] {
-                "i",
-                "want",
-                "to",
-                "volunteer",
-                "for",
-                "event",
-                "events",
-                "like",
-                "love",
-                "and",
-                "a",
-                "now",
-                "help",
-                "in",
-                "this",
-                "these",
-                "those",
-                "need",
-                "we",
-                "get",
-                "involve",
-                "involved",
-                "i'd",
-                "issue",
-                "issues",
-                "go",
-                "interested"
+                "volunteer"
         };
         Arrays.stream(filteredWords).forEach(w -> filter.add(w));
     }
