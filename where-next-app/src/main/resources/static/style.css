@@ -64,12 +64,12 @@ input {
 }
 
 /* new stuff */
-/* 
+
 @import "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
 
-.container {
+/* .container {
   margin-top: 20px;
-}
+} */
 .mb20 {
   margin-bottom: 20px;
 }
@@ -133,7 +133,6 @@ hgroup h2.lead {
 .search-result span.plus {
   position: absolute;
   right: 0;
-  top: 126px;
 }
 .search-result span.plus a {
   background-color: #248dc1;
@@ -150,5 +149,5 @@ hgroup h2.lead {
   width: 97%;
   margin: 0 15px;
   border-bottom: 1px dotted #ccc;
-} */
+}
 /* end new stuff */
