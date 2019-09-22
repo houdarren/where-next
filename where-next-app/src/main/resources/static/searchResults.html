@@ -1,48 +1,117 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
-	</head>
-    
-	<body>
-        <script>
-            $(document).ready(function(){
-            $('#btnSearch').click(function(){
-                let txtSearch = document.querySelector('#txtSearch'); 
-                window.location.href = `file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/search_results.html?search=${txtSearch.value}`;
-            })
-         getData();
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/bd7aff5ed6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.0.js"
+      integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-    });    
-        </script>
-        <div class="topnav">
-            <a class="active" href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/index.html">Home</a>
-            
+  <body>
+    <script>
+      $(document).ready(function() {
+        $("#btnSearch").click(function() {
+          let txtSearch = document.querySelector("#txtSearch");
+          window.location.href = `file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/search_results.html?search=${txtSearch.value}`;
+        });
+        getData();
+      });
+    </script>
+    <!-- <div class="topnav">
+            <a class="active" href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/index.html">Where Next</a>
             <div class="search-container">
                 <form> 
                     <input type="text" id="txtSearch" placeholder="Search.." name="search">
                     <button id="btnSearch" type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-        </div>
-
-        <h2>Search Results:</h2>
-        <h3>Movies</h3>
-        <div id="movieResults" class="search">
-            
-        </div>
-        <h3>Actors</h3>
-        <div id="peopleResults" class="card-group"></div>
-
-	</body>
-    <script src="./search.js">
-    
-    
-    </script>
+        </div> -->
+    <nav
+      class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="./index.html"
+          >Where next</a
+        >
+      </div>
+      <div class="search-container">
+        <form>
+          <input
+            type="text"
+            id="txtSearch"
+            placeholder="Search.."
+            name="search"
+          />
+          <button id="btnSearch" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </nav>
+    <div class="volunteer">
+      <h2>Search Results:</h2>
+      <div id="searchResults" class="search col-xs-12 col-sm-6 col-md-12">
+        <!-- new stuff here -->
+        <article class="search-result row">
+          <div class="col-xs-12 col-sm-12 col-md-3">
+            <a href="#" title="Lorem ipsum" class="thumbnail"
+              ><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum"
+            /></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-2">
+            <ul class="meta-search">
+              <li>
+                <i class="fas fa-calendar-alt"></i> <span>09/19/2019</span>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span> 701 Brazos St</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-7">
+            <h3><a href="#" title="">Title Goes Here</a></h3>
+            <p>
+              Description ... nctio, qui sapiente aspernatur molestiae non
+              corporis magni sit sequi iusto debitis delectus doloremque.
+            </p>
+            <span class="plus"
+              ><a href="#" title="Lorem ipsum"
+                ><i class="fas fa-hand-rock"></i></a
+            ></span>
+          </div>
+          <span class="clearfix border"></span>
+        </article>
+      </div>
+    </div>
+  </body>
+  <script src="./search.js"></script>
 </html>
