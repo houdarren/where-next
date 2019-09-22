@@ -1,25 +1,19 @@
-<html>
+<html >
   <head>
-    <title>
-      Create an Event - Where now? Take the next step to give back to your
-      community!
-    </title>
+    <meta charset="UTF-8">
+    <title>Where now? Take the next step to give back to your community!</title>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./profiles.js"></script>
+      crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -30,97 +24,36 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <script type="text/javascript" src="profiles.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <!-- add fonts and fontawesome here...-->
   </head>
+
   <body>
-    <nav
-      class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
-      id="mainNav"
-    >
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="./index.html"
-          >Where next</a
-        >
-      </div>
-    </nav>
+      
+    <div>
+        <h1>New Event</h1>
 
-    <div class="container-fluid volunteer">
-      <h1>New Event</h1>
+        <form class="form-inline ">
 
-      <form>
-        <div class="form-group col-lg">
-          <input
-            type="text"
-            class="form-control form-inline"
-            id="Title"
-            aria-describedby="emailHelp"
-            placeholder="Event Title"
-            required
-          />
-        </div>
-        <div class="form-group col-lg">
-          <input
-            type="text"
-            class="form-control"
-            id="Organization"
-            aria-describedby="emailHelp"
-            placeholder="Organization"
-            required
-          />
-        </div>
-        <div class="form-group col-lg">
-          <label>Description</label>
-          <input
-            type="text"
-            class="form-control"
-            id="Description"
-            aria-describedby="emailHelp"
-            placeholder="What's this event about? What will volunteers be doing?"
-            required
-          />
-        </div>
-        <div class="form-group col-lg">
-          <label>Event Start Time</label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            id="TimeStart"
-            aria-describedby="emailHelp"
-            required
-          />
-        </div>
-        <div class="form-group col-lg">
-          <label>Event End Time (optional) </label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            id="TimeEnd"
-            aria-describedby="emailHelp"
-          />
-        </div>
+            <div class="md-form col">
+                <input type="text" class="form-control" id="Title" placeholder="Event Title" required>
+            </div>
+            <div class="md-form col">
+                <input type="text" class="form-control" id="Organization" placeholder="Organization" required>
+            </div>
+            <div class="fmd-form col">
+                <label>Description</label>
+                <input type="text" class="form-control" id="Description" placeholder="What's this event about? What will volunteers be doing?" required>
+            </div>
 
-        <div class="form-group col-lg">
-          <label>Location</label>
-          <input
-            type="text"
-            class="form-control"
-            id="Location"
-            aria-describedby="emailHelp"
-            placeholder="Address"
-          />
-        </div>
-        <div class="form-group col-lg">
-          <input
-            type="text"
-            class="form-control"
-            id="Website"
-            aria-describedby="emailHelp"
-            placeholder="Website"
-          />
-        </div>
-        <button id="createEvent" onClick="newEvent()">Create My Event</button>
-      </form>
+            <button id="alertTest">Create My Event</button>
+          </form>
     </div>
+
+    <div id="result">
+
+    </div>
+
   </body>
 </html>
