@@ -1,18 +1,22 @@
+from nltk.tokenize import word_tokenize
+from gensim import corpora
+from gensim.utils import simple_preprocess
+from gensim.parsing.preprocessing import STOPWORDS
+from gensim.corpora.dictionary import Dictionary
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.neighbors import NearestNeighbors
+import warnings
+
+warnings.filterwarnings(action='ignore')
+
 def get_opportunities(word, data): 
     """
     word:
     data: list("id","title", "summary")
     """
-    from nltk.tokenize import word_tokenize
-    from gensim import corpora
-    from gensim.utils import simple_preprocess
-    from gensim.parsing.preprocessing import STOPWORDS
-    from gensim.corpora.dictionary import Dictionary
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    from sklearn.metrics.pairwise import cosine_similarity
-    from sklearn.neighbors import NearestNeighbors
 
-    STOPWORDS = set(STOPWORDS).union(set(['say', 'eat', 'drink']))
+    STOPWORDS = set(STOPWORDS)
     def tokenizer(doc):
          return [token for token in simple_preprocess(doc) 
                  if token not in STOPWORDS]
