@@ -46,7 +46,7 @@ def get_opportunities(word, data):
 
     opportunities = []
     for k in range(0, len(data)):
-        for i in get_syn('education'):
+        for i in get_syn(word):
             for j in data:
                 if i in data[k][2]:
                     opportunities.append(j[0])
