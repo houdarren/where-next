@@ -65,10 +65,10 @@ $(document).ready(function() {
 
     // Search for events
 
-    $("#searchEvent").on("click", function() {
+    $("#btnSearch").on("click", function() {
 
         var searchData = {
-            "searchString": $("#searchBar").val()
+            "searchString": $("#txtSearch").val()
         };
 
         $.ajax({
@@ -81,10 +81,7 @@ $(document).ready(function() {
                 for (var i = 0; i < response.length; i++) {
                     var title = response[i].title;
                     var summary = response[i].summary;
-                    html += "<p class='event'>";
-                    html += title + " ";
-                    html += summary;
-                    html += "</p>";
+                    html += createList(title, summary, "8-22-19", "8-22-19", "NYC, NY")
                 }
                 $("#result").html(html)
             },
@@ -99,4 +96,36 @@ $(document).ready(function() {
       alert("OKOKOKOKOKOKOKKOK")
     });
 
+  function createList(title, desc, tStart, tEnd, address, location) {
+      return `<article class="search-result row">
+          <div class="col-xs-12 col-sm-12 col-md-3">
+                <a href="#" title="Lorem Ipsum" class="thumbnail"
+                  ><img src="http://lorempixel.com/250/140/abstract" alt="Lorem ipsum"
+                /></a>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-2">
+                <ul class="meta-search">
+                  <li>
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>${tStart} - ${tEnd}</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${address}</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-7">
+                <h3><a href="#" title="">${title}</a></h3>
+                <p>
+                  ${desc}
+                </p>
+                <span class="plus"
+                  ><a href="#" title="Lorem ipsum"
+                    ><i class="fas fa-hand-rock"></i></a
+                ></span>
+              </div>
+              <span class="clearfix border"></span>
+            </article> `;
+    }
 });

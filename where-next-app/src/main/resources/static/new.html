@@ -1,8 +1,8 @@
 <html>
   <head>
+    <meta charset="utf-8">
     <title>
-      Create an Event - Where now? Take the next step to give back to your
-      community!
+      Where next - Create an Event
     </title>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -46,7 +46,7 @@
     </nav>
 
     <div class="container-fluid volunteer">
-      <h1>New Event</h1>
+      <h1>Organize a new event!</h1>
 
       <form>
         <div class="form-group col-lg">
@@ -54,15 +54,14 @@
             type="text"
             class="form-control form-inline"
             id="Title"
-            aria-describedby="emailHelp"
-            placeholder="Event Title"
+            placeholder="Opportunity Name"
             required
           />
         </div>
         <div class="form-group col-lg">
           <input
             type="text"
-            class="form-control"
+            class="form-control form-inline"
             id="Organization"
             aria-describedby="emailHelp"
             placeholder="Organization"
@@ -70,41 +69,20 @@
           />
         </div>
         <div class="form-group col-lg">
-          <label>Description</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control form-inline"
             id="Description"
             aria-describedby="emailHelp"
-            placeholder="What's this event about? What will volunteers be doing?"
+            placeholder="Event Description"
             required
-          />
-        </div>
-        <div class="form-group col-lg">
-          <label>Event Start Time</label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            id="TimeStart"
-            aria-describedby="emailHelp"
-            required
-          />
-        </div>
-        <div class="form-group col-lg">
-          <label>Event End Time (optional) </label>
-          <input
-            type="datetime-local"
-            class="form-control"
-            id="TimeEnd"
-            aria-describedby="emailHelp"
           />
         </div>
 
         <div class="form-group col-lg">
-          <label>Location</label>
           <input
             type="text"
-            class="form-control"
+            class="form-control form-inline"
             id="Location"
             aria-describedby="emailHelp"
             placeholder="Address"
@@ -113,14 +91,18 @@
         <div class="form-group col-lg">
           <input
             type="text"
-            class="form-control"
+            class="form-control form-inline"
             id="Website"
             aria-describedby="emailHelp"
             placeholder="Website"
           />
         </div>
-        <button id="createEvent" onClick="newEvent()">Create My Event</button>
+        <button class="btn btn-primary" id="createEvent" onClick="newEvent()">Create My Event</button>
       </form>
+    </div>
+
+    <div id="result">
+
     </div>
   </body>
 </html>
