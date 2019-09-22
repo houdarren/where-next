@@ -10,6 +10,11 @@ import org.wherenext.wherenextapp.db.repository.OpportunityRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * API layer for the where next application
+ *
+ * @author darren.hou
+ */
 @Controller
 @RequestMapping(path="/api")
 public class WherenextController {
@@ -17,14 +22,21 @@ public class WherenextController {
     @Autowired
     private OpportunityRepository opportunityRepository;
 
+    /**
+     *
+     * @param title
+     * @param summary
+     * @param organizer
+     * @return
+     */
     @PostMapping(path="/new")
     public @ResponseBody String insertNewOpportunity(
             @RequestParam String title,
-            @RequestParam String description,
+            @RequestParam String summary,
             @RequestParam String organizer) {
         Opportunity opp = new Opportunity();
         opp.setTitle(title);
-        opp.setCategoryDesc(description);
+        opp.setSummary(summary);
         opportunityRepository.save(opp);
         return "Saved";
     }
@@ -49,6 +61,9 @@ public class WherenextController {
             return getOpportunities();
 
         List<String> keywords = TextUtil.extractKeywords(searchText);
+
+        if (keywords == null || keywords.isEmpty())
+            return getOpportunities();
 
         // hit flask api here
         List<Integer> documentIds = new ArrayList<>();

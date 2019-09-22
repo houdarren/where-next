@@ -1,5 +1,4 @@
-var movieResults = document.getElementById("movieResults");
-var peopleResults = document.getElementById("peopleResults");
+var searchResults = document.getElementById("searchResults");
 const apiKey = "b6f68141a214aea8a4584e1ebb8927cb";
 
 function getUrlParameter(name) {
@@ -25,83 +24,48 @@ function getData() {
 
   $.ajax(settings).done(function(response) {
     for (var i = 0; i < 10; i++) {
-      var movId = response.results[i].id;
-      var movTitle = response.results[i].original_title;
-      var movPic = response.results[i].poster_path;
-      var movDesc = response.results[i].overview;
-      createList(movPic, movTitle, movDesc, movieResults);
-    }
-  });
-
-  var settingsPpl = {
-    async: true,
-    crossDomain: true,
-    url: `https://api.themoviedb.org/3/search/person?include_adult=false&language=en-US&api_key=${apiKey}&query=${searchQuery}&append_to_response=person`,
-    method: "GET",
-    headers: {},
-    data: "{}"
-  };
-
-  $.ajax(settingsPpl).done(function(response) {
-    for (var i = 0; i < 50; i++) {
-      console.dir(response.results[i]);
-      var actId = response.results[i].id;
-      var actName = response.results[i].name;
-      var actDesc = "";
-      var actPic = response.results[i].profile_path;
-      createList(actPic, actName, actDesc, peopleResults);
+      var title = response.results[i].title;
+      var desc = response.results[i].description;
+      var tStart = response.results[i].tStart;
+      var tEnd = response.results[i].tEnd;
+      var address = response.results[i].location;
+      createList(title, desc, tStart, tEnd, address, location);
     }
   });
 }
 
-function createList(pic, name, desc, location) {
-  var list = document.createElement("DIV");
-  list.classList = "list";
+function createList(title, desc, tStart, tEnd, address, location) {
+  var article = document.createElement("article");
+  article.classList = "search-result row";
+  article.innerHTML = `          <div class="col-xs-12 col-sm-12 col-md-3">
+            <a href="#" title="Lorem Ipsum" class="thumbnail"
+              ><img src="http://lorempixel.com/250/140/abstract" alt="Lorem ipsum"
+            /></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-2">
+            <ul class="meta-search">
+              <li>
+                <i class="fas fa-calendar-alt"></i>
+                <span>${tStart} - ${tEnd}</span>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>${address}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-7">
+            <h3><a href="#" title="">${title}</a></h3>
+            <p>
+              ${desc}
+            </p>
+            <span class="plus"
+              ><a href="#" title="Lorem ipsum"
+                ><i class="fas fa-hand-rock"></i></a
+            ></span>
+          </div>
+          <span class="clearfix border"></span>
+        </article> `;
 
-  if (pic) {
-    list.innerHTML = `<div class = "movie-item">
-    <img class="search-img" src="https://image.tmdb.org/t/p/w342/${pic}" alt="${name}">
-    <div><b><u>${name}</u></b> ${desc}</div>
-    </div>`;
-  } else {
-    list.innerHTML = `<div class = "movie-item">
-        <img class="search-img" src="icon.png" alt="${name}">
-    <div><b><u>${name}</u></b> ${desc}</div>
-    </div>`;
-  }
-
-  location.appendChild(list);
-}
-
-function createCard(Id, name, pic, desc, location, type) {
-  var card = document.createElement("DIV");
-  card.classList = "card";
-
-  switch (type) {
-    case "movie":
-      card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/movie_details.html?id=${Id}">
-            <img class="card-img" src="https://image.tmdb.org/t/p/w342/${pic}" alt="${name}">
-            </a>`;
-      break;
-
-    case "cast":
-      if (pic) {
-        card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/actor_details.html?id=${Id}">
-                <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/${pic}" alt="${name}">
-                <div class="card-body">
-                    <h5 class="card-title">${name}</h5></a>
-                    <p class="card-text">as ${desc}</p>    
-                </div> `;
-      } else {
-        card.innerHTML = `<a href="file:///C:/Users/Lydia/projects/snowpeech.github.io/movie-db/actor_details.html?id=${Id}">
-            <img class="card-img" src="icon.png" alt="${name}">
-            <div class="card-img-overlay">
-                <h5 class="card-title">${name}</h5></a>
-                <p class="card-text">as ${desc}</p>    
-            </div> `;
-      }
-
-      break;
-  }
-  location.appendChild(card);
+  location.appendChild(article);
 }
